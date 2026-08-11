@@ -1,0 +1,37 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf*
+.terraformrc
+terraform.rc
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Ansible
+*.retry
+vault_pass.txt
+
+# AWS / secrets
+.env
+credentials
+*.pem
+
+# Docker
+*.pid
+
+# Course checklist PDFs (per-section, never committed)
+*.pdf
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
