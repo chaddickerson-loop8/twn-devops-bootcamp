@@ -26,9 +26,8 @@ When implementing a checklist item from the original course, translate the under
 
 ## Git Workflow
 
-- Branch flow: `develop` → section branches → PR review → merge to `develop` → PR review → merge to `main`.
-- **No direct pushes to `main`.** All changes to `main` land via reviewed PR from `develop`.
-- **No direct pushes to `develop`** either — section work happens on section branches, merged via PR.
+- Branch flow: each section gets its own branch cut from `main` (e.g. `08-cicd-github-actions`). All work for that section happens on its branch.
+- **No direct pushes to `main`** once a section branch exists for the work in question. Changes land on `main` via reviewed PR from the section branch, opened once the section is complete and tested.
 - **No AI-attribution in commits or PRs** — no "Co-Authored-By: Claude" or similar trailers, no mention of AI assistance in commit messages or PR descriptions.
 
 ## Registry
