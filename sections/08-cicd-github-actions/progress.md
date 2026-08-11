@@ -11,7 +11,8 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 - [ ] Not Started — Create repo `.github/workflows/` directory structure
 - [ ] Not Started — Write a basic workflow triggered on push (equivalent of Jenkins UI tour / first Freestyle job) — *note: no Jenkins server install/UI tour needed; GitHub Actions runners are hosted, not self-managed*
 - [ ] Not Started — Configure workflow to check out code (`actions/checkout`)
-- [ ] Not Started — Install build tools (Java/Maven, Node/npm) via `setup-java` / `setup-node` actions — *note: replaces manual Maven plugin config and manual node/npm install inside Jenkins container*
+- [x] Reviewed/Translated — Install build tools (Java/Maven, Node/npm) via `setup-java` / `setup-node` actions — *note: replaces manual Maven plugin config and manual node/npm install inside Jenkins container. This Jenkins step (Maven Global Tool Config, manual Node.js install via `docker exec`, Pipeline Stage View plugin) has no direct GitHub Actions equivalent because GitHub Actions runners are ephemeral and pre-provisioned — ships with `actions/setup-java` and `actions/setup-node` instead of persistent server configuration.*
+  - *Personal notes reviewed (local PDF, not committed) confirming original steps used Maven 3.9.9, Node 20.x, Jenkins Stage View plugin — none of which require replication; GitHub Actions replaces the whole workflow with two setup-action lines.*
 - [ ] Not Started — Configure job to run tests and build Java application
 - [ ] Not Started — Configure job to run tests and build Node application (if applicable)
 
