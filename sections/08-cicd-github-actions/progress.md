@@ -9,6 +9,7 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 ## Terraform Foundation
 
 - [~] Code Written - Not Yet Applied — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Real bucket name (`chaddickerson-twn-devops-tfstate`) has been filled in — ready to apply, pending AWS credentials being configured locally.*
+- [x] Done — Configure local AWS CLI credentials (aws configure) and verify via `aws sts get-caller-identity` — confirmed authenticated as IAM user with AdministratorAccess, ready to run terraform init/plan on backend bootstrap
 
 ## GitHub Actions Basics
 
