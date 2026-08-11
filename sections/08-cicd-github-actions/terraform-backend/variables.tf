@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "bucket_name" {
   description = "Globally-unique S3 bucket name for Terraform remote state. Must be filled in with a real, available name before applying."
   type        = string
-  default     = "REPLACE_ME-twn-devops-bootcamp-tfstate"
+  default     = "chaddickerson-twn-devops-tfstate"
 }
 
 variable "dynamodb_table_name" {

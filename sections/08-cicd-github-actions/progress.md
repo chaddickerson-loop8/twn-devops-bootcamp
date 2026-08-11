@@ -8,7 +8,7 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 
 ## Terraform Foundation
 
-- [~] Code Written - Not Yet Applied — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Requires filling in a real, globally-unique bucket name in `variables.tf` and running `terraform init`/`plan`/`apply` manually before anything else in this section can use remote state.*
+- [~] Code Written - Not Yet Applied — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Real bucket name (`chaddickerson-twn-devops-tfstate`) has been filled in — ready to apply, pending AWS credentials being configured locally.*
 
 ## GitHub Actions Basics
 
