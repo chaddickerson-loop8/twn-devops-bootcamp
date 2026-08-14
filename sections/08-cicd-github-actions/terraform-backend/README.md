@@ -11,6 +11,8 @@ Remote state matters here specifically because Terraform will be run non-interac
 
 Storing state in S3 (versioned, encrypted, private) with locking via DynamoDB gives every run — local or CI — a single consistent source of truth for what's already been provisioned.
 
+> **This backend infrastructure (S3 bucket + DynamoDB table) is PERMANENT by design** and is excluded from this repo's cost-management rule of destroying infrastructure after each session. It must persist, since it holds the state that all other Terraform in this repo depends on. Do not include it in any teardown workflow.
+
 ## This is a ONE-TIME manual bootstrap step
 
 **Do not run this via GitHub Actions. Do not run it repeatedly.**
