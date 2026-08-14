@@ -35,3 +35,6 @@ credentials
 .DS_Store
 .vscode/
 .idea/
+
+# Screenshots (per-section, never committed)
+screenshots/
