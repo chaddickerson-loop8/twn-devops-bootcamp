@@ -11,6 +11,10 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 - [x] Done — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Applied successfully and independently verified in the AWS Console: S3 bucket `chaddickerson-twn-devops-tfstate` and DynamoDB table `twn-devops-bootcamp-tfstate-lock` now exist in AWS (see `screenshots/s3-bucket-created-console-view.png` and `screenshots/dynamodb-table-created-console-view.png`).*
 - [x] Done — Configure local AWS CLI credentials (aws configure) and verify via `aws sts get-caller-identity` — confirmed authenticated as IAM user with AdministratorAccess, ready to run terraform init/plan on backend bootstrap
 
+## Demo Application
+
+- [x] Done — Add modernized Java 17/Spring Boot 3.2.5 demo app in `app/`, sourced from the TWN course reference repo (`chaddickerson-loop8/Jenkins-GitHub`, `starting-code` branch) and modernized from Java 8/Spring Boot 2.3 per this repo's modernization policy (see root `CLAUDE.md`) — local build verified successful via `mvn clean package` (see `screenshots/maven-build-success-claude-code-output.png`).
+
 ## GitHub Actions Basics
 
 - [ ] Not Started — Create repo `.github/workflows/` directory structure

@@ -38,3 +38,8 @@ credentials
 
 # Screenshots (per-section, never committed)
 screenshots/
+
+# Java / Maven
+target/
+*.class
+*.jar
