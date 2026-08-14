@@ -48,6 +48,7 @@ jobs:
         run: |
           java -version
           mvn -version
+          npm --version
 
       # Replaces the Freestyle/Maven job's "Invoke Top-Level Maven Targets"
       # build steps (Goal: test, then Goal: package). mvn clean package runs
