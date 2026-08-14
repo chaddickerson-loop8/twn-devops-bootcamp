@@ -8,7 +8,7 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 
 ## Terraform Foundation
 
-- [x] Done — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Applied successfully: S3 bucket `chaddickerson-twn-devops-tfstate` and DynamoDB table `twn-devops-bootcamp-tfstate-lock` now exist in AWS.*
+- [x] Done — Write Terraform backend bootstrap config (S3 bucket for state + DynamoDB table for locking) in `terraform-backend/` — *note: this is a one-time manual bootstrap (local state only, no `backend` block — see `terraform-backend/README.md`), not something GitHub Actions runs. Applied successfully and independently verified in the AWS Console: S3 bucket `chaddickerson-twn-devops-tfstate` and DynamoDB table `twn-devops-bootcamp-tfstate-lock` now exist in AWS (see `screenshots/s3-bucket-created-console-view.png` and `screenshots/dynamodb-table-created-console-view.png`).*
 - [x] Done — Configure local AWS CLI credentials (aws configure) and verify via `aws sts get-caller-identity` — confirmed authenticated as IAM user with AdministratorAccess, ready to run terraform init/plan on backend bootstrap
 
 ## GitHub Actions Basics

@@ -18,3 +18,8 @@ This README will be updated as work on the section progresses. See [progress.md]
   - S3 bucket: `chaddickerson-twn-devops-tfstate` (versioning enabled, AES256 encryption, public access blocked)
   - DynamoDB table: `twn-devops-bootcamp-tfstate-lock` (pay-per-request billing)
 - Terraform Foundation backend bootstrap task is now fully done.
+
+### 2026-08-13 (verification)
+- Independently verified the applied backend by checking the AWS Console directly (not just Terraform output):
+  - S3 bucket `chaddickerson-twn-devops-tfstate` confirmed present — see `screenshots/s3-bucket-created-console-view.png`.
+  - DynamoDB table `twn-devops-bootcamp-tfstate-lock` confirmed present and Active — see `screenshots/dynamodb-table-created-console-view.png`.
