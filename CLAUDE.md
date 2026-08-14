@@ -37,3 +37,7 @@ When implementing a checklist item from the original course, translate the under
 ## Screenshots
 
 Every section folder (`sections/<NN-name>/`) must include its own `screenshots/` subfolder, created as part of that section's initial scaffolding. This folder is gitignored (covered by the root `.gitignore` `screenshots/` rule) and never committed - it exists purely as a local visual verification record. Screenshots go here to confirm successful runs (e.g. terraform apply output, AWS Console views, passing GitHub Actions workflows) or to document errors/troubleshooting. Files should be renamed descriptively based on their content (ask Claude Code to view and rename them appropriately) rather than left with default OS screenshot names. The section's README.md Progress Log should reference these screenshots by filename/description when documenting what was verified or how an issue was resolved.
+
+## Course Materials & Notes
+
+Each section will typically have two types of local reference PDFs: (1) the official course checklist PDF, and (2) personal notes PDFs documenting steps/screenshots from a prior pass through the material. Both are read via `pdftotext -layout` (not raw text extraction, which returns unreadable binary PDF structure). Neither type is ever committed - both are covered by the root `.gitignore` `*.pdf` rule. These PDFs inform how a section gets translated to GitHub Actions/AWS, but the translation should modernize outdated syntax/versions rather than copying old content verbatim.
