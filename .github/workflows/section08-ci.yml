@@ -1,0 +1,57 @@
+name: "Section 08 - CI Build"
+
+# Replaces manually clicking "New Job" -> "Freestyle Project" in the Jenkins UI
+# and configuring "Build Triggers" by hand. GitHub Actions triggers are native
+# (no webhook wiring needed) and defined here as code instead.
+on:
+  push:
+    branches:
+      - 08-cicd-github-actions
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Replaces the Freestyle job "my-job" / Maven job "java-maven-build" from
+  # the course video - one ephemeral runner instead of a persistent Jenkins
+  # server + container.
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Replaces Jenkins' Git SCM configuration (repo URL + Credentials
+      # Provider selection) in the Freestyle job's "Source Code Management"
+      # section - checkout is a first-class, native step here.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Replaces Jenkins' Global Tool Configuration for Maven/JDK
+      # (Manage Jenkins -> Tools -> Add Maven) - the runner is provisioned
+      # fresh with the requested JDK on every run, no persistent config.
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # Replaces installing the Jenkins NodeJS plugin and configuring a
+      # "My-nodejs" tool installation (Manage Jenkins -> Tools -> NodeJS).
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Mirrors the course's "Execute Shell" / "Invoke Top-Level Maven
+      # Targets" version-check build step (npm --version, mvn --version)
+      # used to confirm tools were correctly installed inside Jenkins.
+      - name: Confirm build tools are available
+        run: |
+          java -version
+          mvn -version
+
+      # Replaces the Freestyle/Maven job's "Invoke Top-Level Maven Targets"
+      # build steps (Goal: test, then Goal: package). mvn clean package runs
+      # the test phase automatically before packaging, so one step covers both.
+      - name: Build and test app
+        working-directory: sections/08-cicd-github-actions/app
+        run: mvn clean package

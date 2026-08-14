@@ -17,12 +17,13 @@ Rebuild of TechWorld with Nana's "Build Automation & CI/CD with Jenkins" module,
 
 ## GitHub Actions Basics
 
-- [ ] Not Started — Create repo `.github/workflows/` directory structure
-- [ ] Not Started — Write a basic workflow triggered on push (equivalent of Jenkins UI tour / first Freestyle job) — *note: no Jenkins server install/UI tour needed; GitHub Actions runners are hosted, not self-managed*
-- [ ] Not Started — Configure workflow to check out code (`actions/checkout`)
+- [x] Done — Create repo `.github/workflows/` directory structure — created at repo root (`.github/workflows/`), containing `section08-ci.yml`
+- [x] Done — Write a basic workflow triggered on push (equivalent of Jenkins UI tour / first Freestyle job) — *note: no Jenkins server install/UI tour needed; GitHub Actions runners are hosted, not self-managed. `section08-ci.yml` triggers on push to `08-cicd-github-actions` and on `pull_request` targeting `main`.*
+- [x] Done — Configure workflow to check out code (`actions/checkout`) — `actions/checkout@v4` step added, replacing Jenkins' Git SCM job configuration
 - [x] Reviewed/Translated — Install build tools (Java/Maven, Node/npm) via `setup-java` / `setup-node` actions — *note: replaces manual Maven plugin config and manual node/npm install inside Jenkins container. This Jenkins step (Maven Global Tool Config, manual Node.js install via `docker exec`, Pipeline Stage View plugin) has no direct GitHub Actions equivalent because GitHub Actions runners are ephemeral and pre-provisioned — ships with `actions/setup-java` and `actions/setup-node` instead of persistent server configuration.*
   - *Personal notes reviewed (local PDF, not committed) confirming original steps used Maven 3.9.9, Node 20.x, Jenkins Stage View plugin — none of which require replication; GitHub Actions replaces the whole workflow with two setup-action lines.*
-- [ ] Not Started — Configure job to run tests and build Java application
+  - *Implemented in `section08-ci.yml`: `actions/setup-java@v4` (temurin, 17) + `actions/setup-node@v4` (20), plus a version-check step (`java -version` / `mvn -version`) mirroring the course's Freestyle job version-verification build step (video 5).*
+- [x] Done — Configure job to run tests and build Java application — `section08-ci.yml`'s `build` job runs `mvn clean package` with `working-directory: sections/08-cicd-github-actions/app`, replacing the Freestyle/Maven job's separate `test` and `package` Maven-goal build steps from video 5 (a single `mvn clean package` covers both, since Maven's lifecycle runs `test` before `package`). Added `app/src/test/java/com/example/AppTest.java` (JUnit 5/Jupiter) as part of this, verified locally: `mvn clean package` → BUILD SUCCESS, 1 test run, 0 failures.
 - [ ] Not Started — Configure job to run tests and build Node application (if applicable)
 
 ## Docker Integration
