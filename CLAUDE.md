@@ -33,3 +33,7 @@ When implementing a checklist item from the original course, translate the under
 ## Registry
 
 - Use **AWS ECR** for all container image storage. Do not reference DockerHub or Nexus in new workflows — those were the original course's registries and are not part of this rebuild's target architecture.
+
+## Screenshots
+
+Every section folder (`sections/<NN-name>/`) must include its own `screenshots/` subfolder, created as part of that section's initial scaffolding. This folder is gitignored (covered by the root `.gitignore` `screenshots/` rule) and never committed - it exists purely as a local visual verification record. Screenshots go here to confirm successful runs (e.g. terraform apply output, AWS Console views, passing GitHub Actions workflows) or to document errors/troubleshooting. Files should be renamed descriptively based on their content (ask Claude Code to view and rename them appropriately) rather than left with default OS screenshot names. The section's README.md Progress Log should reference these screenshots by filename/description when documenting what was verified or how an issue was resolved.
